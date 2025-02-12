@@ -4,6 +4,7 @@ const bodyParser=require("body-parser")
 const {PORT}=require("./config/serverConfig")
 const apiRoutes=require("./routes/index");
 const UserRepository=require("./repository/user-repository")
+const UserService=require("./services/user-service")
 const prepareAndStartServer=()=>{
 
     app.use(bodyParser.json());
@@ -12,7 +13,12 @@ const prepareAndStartServer=()=>{
     app.listen(PORT,async()=>{
         console.log(`Server started on Port: ${PORT}`);
     })
-    
+    const us=new UserService();
+    // const newToken=us.createToken({email:"qqq@22sd.com",id:"ansdk"})
+    // console.log("new token is ",newToken)
+    // const token="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InFxcUAyMnNkLmNvbSIsImlkIjoiYW5zZGsiLCJpYXQiOjE3MzkzNDEyMDIsImV4cCI6MTczOTM0MTIzMn0.K290IC-7e16ffiFmIyQpIdTElrkh-7hRobFHFS0fh4E"
+    // const res=us.verifyToken(token)
+    // console.log(res)
 }
 
 prepareAndStartServer();
