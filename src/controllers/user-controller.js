@@ -37,9 +37,9 @@ const signIn=async(req,res)=>{
         console.log(error);
         return res.status(500).json({
             data:{},
-            message:"Something went wrong",
+            message:error.message,
             success:false,
-            err:error
+            err:error.explaination
         })
     }
 }

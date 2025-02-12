@@ -51,6 +51,9 @@ class UserService{
             return newJWT
             
         } catch (error) {
+            if(error.name=="EmailNotFound"){
+                throw error
+            }
             console.log("Something went wrong in the sign in process")
             throw error
         }
